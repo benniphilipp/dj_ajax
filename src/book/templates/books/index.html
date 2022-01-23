@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+
+{% block title %}
+Books
+{% endblock %}
+
+
+{% block content %}
+
+{% video obj.video '100% x 400' %}
+
+{% endblock %}

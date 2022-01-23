@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+Books
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+
+$( function() {
+  $( "#sortable" ).sortable({
+    update: function(event, ui) {
+      sort =[];
+      $("sortable").children().each(function(){
+        sort.push({'pk':$(this).data('pk'),'order':$(this).index()})
+      });
+    }
+  });
+
+} );
+</script>
+{% endblock %}
+
+{% block content %}
+
+<ul id="sortable">
+  <li data-pk="1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li data-pk="2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li data-pk="3" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+  <li data-pk="4" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li data-pk="5" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+</ul>
+
+
+
+{% endblock %}
